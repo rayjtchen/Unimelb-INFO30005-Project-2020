@@ -1,33 +1,24 @@
 var express = require('express');
 var router = express.Router();
 
-
-//Bring in Models
-let Article = require('../models/article')
+var article_controller = require('../controllers/article_controller.js');
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/', function(req, res, next)
+{
   res.render('index', { title: 'Express' });
 });
 
-/* GET home page. */
-router.get('/articles', function (req, res)
+/* GET Articles. */
+router.get('/articles', article_controller.findAllArticles);
+
+// Add add_article route
+router.get('/articles/add', function(req,res)
 {
-  Article.find({}, function(err,articles)
-  {
-    if(err)
-    {
-      console.log(err);
-    }
-    else
-    {
-      res.render('articles',
-          {
-            title:'Articles',
-            articles:articles
-          });
-    }
-  });
+    res.render('add_article', {title:'Add Article'});
 });
+
+// Add article
+router.post('/articles/add', article_controller.addArticle);
 
 module.exports = router;

@@ -3,23 +3,13 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-var mongoose = require('mongoose');
+//var mongoose = require('mongoose');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
-
 // Connect to DB
-const uri = "mongodb+srv://project:project123@cluster0-rirss.mongodb.net/umsv?retryWrites=true&w=majority";
-
-// Check connection
-mongoose.connect(uri, function(err){
-  if(!err){
-    console.log('Connected to mongo.');
-  }else{
-    console.log('Failed to connect to mongo!', err);
-  }
-});
+require('./models/db.js');
 
 // Init App
 var app = express();
