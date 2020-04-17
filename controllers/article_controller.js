@@ -22,7 +22,7 @@ var findAllArticles = function (req, res)
                 });
         }
     });
-}
+};
 
 
 
@@ -44,7 +44,7 @@ var addArticle = function(req,res)
             res.redirect('/articles');
         }
     });
-}
+};
 
 module.exports.findAllArticles = findAllArticles;
 module.exports.addArticle = addArticle;

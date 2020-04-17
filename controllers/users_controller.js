@@ -1,33 +1,23 @@
 var express = require('express');
 var router = express.Router();
 var bcrypt  = require('bcryptjs');
+const { validationResult } = require('express-validator');
 
 // bring in user model
 var User = require('../models/user');
 
 var registerNewUser = function(req, res){
-    const email = req.body.email;
-    const username = req.body.username;
-    const password = req.body.password;
-    const password2 = req.body.password2;
+    const errors = validationResult(req);
 
-    req.checkBody('email', 'Email is required').notEmpty();
-    req.checkBody('email', 'Email is not vailed').isEmail();
-    req.checkBody('username', 'Username is required').notEmpty();
-    req.checkBody('password', 'Password is required').notEmpty();
-    req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
-
-    let errors = req.validationErrors();
-
-    if(errors){
+    if(!errors.isEmpty()){
         res.render('register', {
             errors:errors
         });
     }else {
         let newUser = new User({
-            email:email,
-            username:username,
-            password:password
+            email:req.body.email,
+            username:req.body.username,
+            password:req.body.password
         });
 
         bcrypt.genSalt(10, function(err, salt){
@@ -41,7 +31,7 @@ var registerNewUser = function(req, res){
                         console.log(err);
 
                     }else{
-                        req.flash('success', 'You are now registered and can log in!');
+                        console.log('success');
                         res.redirect('/users/login');
                     }
                 });

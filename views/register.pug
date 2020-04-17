@@ -13,3 +13,7 @@ block content
         input.form-control(name = 'password2', type = 'password')
         br
         input.btn.btn-primary(type = 'submit', value = 'Submit')
+    div
+        ul
+            each err,inddex in errors.errors
+                li #{err.msg}
