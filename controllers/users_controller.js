@@ -11,6 +11,7 @@ var registerNewUser = function(req, res){
 
     if(!errors.isEmpty()){
         res.render('register', {
+            title:'Register',
             errors:errors
         });
     }else {

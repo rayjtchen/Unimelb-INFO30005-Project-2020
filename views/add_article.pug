@@ -4,13 +4,12 @@ block content
     h1 #{title}
     //add article to DB
     form(method = 'POST', action = '/articles/add')
-        .form-group
-            label Title:
-            input.from-control(name='title',type='text')
-            br
-            label Author:
-            input.from-control(name='author',type='text')
-            br
-            label Body:
-            textarea.from-control(name='body')
+        label Title:
+        input.from-control(name='title',type='text')
+        label Author:
+        input.from-control(name='author',type='text')
+        label Body:
+        textarea.from-control(name='body')
+        br
         input.btn.btn-primary(type='submit', value='Submit')
+    div

@@ -24,6 +24,7 @@ router.get('/login', function(req, res){
 });
 
 
+
 router.post('/register', validator.createUser, users_controller.registerNewUser);
 
 module.exports = router;

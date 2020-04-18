@@ -1,7 +1,8 @@
 extends layout.pug
 
 block content
-    h1 Register
+    h1 #{title}
+    include register_alert
     form(method = 'POST', action = '/users/register')
         label Email:
         input.form-control(name = 'email', type = 'text')
@@ -13,7 +14,3 @@ block content
         input.form-control(name = 'password2', type = 'password')
         br
         input.btn.btn-primary(type = 'submit', value = 'Submit')
-    div
-        ul
-            each err,inddex in errors.errors
-                li #{err.msg}

@@ -1,0 +1,6 @@
+
+each err,inddex in errors.errors
+    .alert.alert-warning.alert-dismissible.fade.show(role='alert' style= 'background-color: #fff3cd; border-color: #ffeeba')
+        .message(style= 'color: #DAA520;') #{err.msg}
+        button.close(type='button' data-dismiss='alert' aria-label='Close' style="color: #856404;")
+            span(aria-hidden='true') &times;
