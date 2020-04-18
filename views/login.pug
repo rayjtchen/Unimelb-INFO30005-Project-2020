@@ -2,6 +2,7 @@ extends layout.pug
 
 block content
     h1 Login
+    include login_alert
     form(method = 'POST', action = '/users/login')
         label Username:
         input.form-control(name = 'username', type = 'text')

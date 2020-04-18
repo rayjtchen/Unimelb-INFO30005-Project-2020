@@ -1,0 +1,5 @@
+-if(success_msg != '')
+    .alert.alert-warning.alert-dismissible.fade.show(role='alert' style= 'background-color: #fff3cd; border-color: #ffeeba')
+        .message(style= 'color: #DAA520;' visibility = "hidden") #{success_msg}
+        button.close(type='button' data-dismiss='alert' aria-label='Close' style="color: #856404;")
+            span(aria-hidden='true') &times;

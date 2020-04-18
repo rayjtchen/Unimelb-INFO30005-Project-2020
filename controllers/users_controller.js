@@ -33,6 +33,7 @@ var registerNewUser = function(req, res){
 
                     }else{
                         console.log('success');
+                        req.flash('success_msg', 'Thank you for registered please verify email your email');
                         res.redirect('/users/login');
                     }
                 });
