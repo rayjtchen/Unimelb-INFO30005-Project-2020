@@ -1,5 +1,17 @@
--if(success_msg != '')
+-if(success_register_msg != '')
     .alert.alert-warning.alert-dismissible.fade.show(role='alert' style= 'background-color: #fff3cd; border-color: #ffeeba')
-        .message(style= 'color: #DAA520;' visibility = "hidden") #{success_msg}
+        .message(style= 'color: #DAA520;' visibility = "hidden") #{success_register_msg}
+        button.close(type='button' data-dismiss='alert' aria-label='Close' style="color: #856404;")
+            span(aria-hidden='true') &times;
+
+-if(error != '')
+    .alert.alert-warning.alert-dismissible.fade.show(role='alert' style= 'background-color: #fff3cd; border-color: #ffeeba')
+        .message(style= 'color: #DAA520;' visibility = "hidden") #{error}
+        button.close(type='button' data-dismiss='alert' aria-label='Close' style="color: #856404;")
+            span(aria-hidden='true') &times;
+
+-if(error_msg != '')
+    .alert.alert-warning.alert-dismissible.fade.show(role='alert' style= 'background-color: #fff3cd; border-color: #ffeeba')
+        .message(style= 'color: #DAA520;' visibility = "hidden") #{error_msg}
         button.close(type='button' data-dismiss='alert' aria-label='Close' style="color: #856404;")
             span(aria-hidden='true') &times;
