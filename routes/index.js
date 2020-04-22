@@ -6,7 +6,7 @@ var article_controller = require('../controllers/article_controller.js');
 /* GET home page. */
 router.get('/', function(req, res, next)
 {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'UMSV' });
 });
 
 /* GET Articles. */
