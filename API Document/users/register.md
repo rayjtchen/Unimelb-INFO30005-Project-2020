@@ -1,4 +1,4 @@
-#Login
+# Login
 
 Used to collect data for a registered user.
 
@@ -26,7 +26,7 @@ Data example
     }
 
 
-###Success Response
+### Success Response
 
 Code : `200 OK`
 
@@ -39,7 +39,7 @@ Content example
         "Enter the password again": "test"
     }
 
-###Error Response
+### Error Response
 
     check('email', 'Email is not valid').isEmail(),
     

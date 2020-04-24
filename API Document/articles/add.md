@@ -1,4 +1,4 @@
-#Add Articles
+# Add Articles
 
 Used to post articles to database.
 
@@ -24,7 +24,7 @@ Data example
     }
 
 
-###Success Response
+### Success Response
 
 Code : `200 OK`
 

@@ -1,4 +1,4 @@
-#Show Current Articles
+# Show Current Articles
 
 Used to get all the current articles in the database.
 
@@ -10,7 +10,7 @@ Auth required : NO
 
 Permissions required : None
 
-###Success Response
+### Success Response
 
 Code : `200 OK`
 

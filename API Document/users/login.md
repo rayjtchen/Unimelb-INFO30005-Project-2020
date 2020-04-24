@@ -1,4 +1,4 @@
-#Login
+# Login
 
 Used to collect a Token for a registered User.
 
@@ -23,7 +23,7 @@ Data example
     }
 
 
-###Success Response
+### Success Response
 
 Code : `200 OK`
 
@@ -34,7 +34,7 @@ Content example
         "password": "1234"
     }
 
-###Error Response
+### Error Response
 
 Condition : If 'UM Email' is not registered.
 
