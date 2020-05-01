@@ -28,5 +28,8 @@ Comment will be post to : https://info30005-project-umsv.herokuapp.com/users/com
 
 #### Test account for authentication(login):
         
-        email: test@student.unimelb.edu.au
-        password: test
+    email: test@student.unimelb.edu.au
+    password: test
+        
+#### ID of test article : 
+    id : 5eac1bc719736912c5e1d80b
