@@ -1,4 +1,4 @@
-# Login
+# Register
 
 Used to collect data for a registered user.
 
@@ -41,11 +41,6 @@ Content example
 
 ### Error Response
 
-    check('email', 'Email is not valid').isEmail(),
-    
-    check('password2', 'Passwords do not match').exists().custom((value,{req})=>{
-        return value === req.body.password;
-
 Condition : If any field is empty.
 
 Code : `400 BAD REQUEST`
@@ -69,6 +64,20 @@ Content :
     {
         "Email": [
             "Email is not valid"
+        ]
+    }
+
+**OR**
+
+Condition : If 'Email' has already been registered into database.
+
+Code : `400 BAD REQUEST`
+
+Content :
+
+    {
+        "Email": [
+            "Email is already registered"
         ]
     }
 
