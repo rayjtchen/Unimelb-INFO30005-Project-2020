@@ -1,18 +1,32 @@
 # Unimelb-INFO30005-Project-2020
 Unimelb-Web Information Technologies (INFO30005)-project-Semester 1 2020
 
-Our three main functions:
-1.  articles: https://info30005-project-umsv.herokuapp.com/articles
+### Our three main functions:
 
-    add articles: https://info30005-project-umsv.herokuapp.com/articles/add
+**1.  users:** 
 
-2.  users: https://info30005-project-umsv.herokuapp.com/users
-
-    login: https://info30005-project-umsv.herokuapp.com/users/login
+Login: https://info30005-project-umsv.herokuapp.com/users/login
     
-    register: https://info30005-project-umsv.herokuapp.com/users/register
+Register: https://info30005-project-umsv.herokuapp.com/users/register
     
-    Test account for authentication(login):
+Dashborad (need authentication): https://info30005-project-umsv.herokuapp.com/users/dashboard
+
+
+**2.  articles:** 
+
+View petition articles : https://info30005-project-umsv.herokuapp.com/petition/articles/summary
+
+Add articles (need authentication): https://info30005-project-umsv.herokuapp.com/users/articles/add
+
+**3.  comment:**
+
+Get comment about an article (need authentication) : https://info30005-project-umsv.herokuapp.com/petition/articles/:id
+
+Comment will be post to : https://info30005-project-umsv.herokuapp.com/users/comment/:id
+
+(Here id == id of the article)
+
+#### Test account for authentication(login):
         
         email: test@student.unimelb.edu.au
         password: test

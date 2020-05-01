@@ -2,8 +2,7 @@
 
 Used to collect a Token for a registered User.
 
-URL : https://info30005-project-umsv.herokuapp.com/users/login
-
+URL : /users/login
 
 Method : POST
 

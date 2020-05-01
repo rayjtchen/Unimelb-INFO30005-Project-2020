@@ -2,7 +2,7 @@
 
 Used to collect data for a registered user.
 
-URL : https://info30005-project-umsv.herokuapp.com/users/register
+URL : /users/register
 
 Method : POST
 
