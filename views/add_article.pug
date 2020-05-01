@@ -2,14 +2,25 @@ extends layout
 
 block content
     h1 #{title}
+    include login_alert
     //add article to DB
-    form(method = 'POST', action = '/articles/add')
+    form(method = 'POST', action = '/users/articles/add')
+        label Author:
+        input.from-control(name='author',type='text', value=user.username, readonly)
+        label Email:
+        input.from-control(name='author',type='text', value=user.email, readonly)
+        label Category:
+        select#category(name='category')
+            option(value='Learning') Learning
+            option(value='Facility') Facility
+            option(value='Social') Social
+            option(value='Safety') Safety
+            option(value='Other') Other
         label Title:
         input.from-control(name='title',type='text')
-        label Author:
-        input.from-control(name='author',type='text')
+        label Summary:
+        textarea.from-control(name='summary')
         label Body:
         textarea.from-control(name='body')
         br
         input.btn.btn-primary(type='submit', value='Submit')
-    div

@@ -24,13 +24,15 @@ var findAllArticles = function (req, res)
     });
 };
 
-
-
 var addArticle = function(req,res)
 {
     let article = new Article();
     article.title = req.body.title;
-    article.author = req.body.author;
+    article.author = req.user.username;
+    article.author_email = req.user.email;
+    article.category = req.body.category;
+    article.author_id = req.user._id;
+    article.summary = req.body.summary;
     article.body = req.body.body;
 
     article.save(function(err)
@@ -41,10 +43,12 @@ var addArticle = function(req,res)
         }
         else
         {
-            res.redirect('/articles');
+            res.redirect('/petition/articles/summary');
         }
     });
 };
+
+
 
 module.exports.findAllArticles = findAllArticles;
 module.exports.addArticle = addArticle;

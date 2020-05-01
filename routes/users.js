@@ -4,6 +4,7 @@ const passport = require('passport');
 const { ensureAuthenticated, forwardAuthenticated } = require('../models/auth');
 
 var users_controller = require('../controllers/users_controller');
+var article_controller = require('../controllers/article_controller.js');
 var validator = require('../controllers/validator');
 var User = require('../models/user');
 
@@ -41,7 +42,7 @@ router.post('/login', (req, res, next) => {
 
 // render dashboard
 router.get('/dashboard', ensureAuthenticated,function(req, res){
-  res.render('dashboard', {title:'Dashboard'});
+  res.render('dashboard', {user: req.user});
 });
 
 // Logout
@@ -50,6 +51,15 @@ router.get('/logout', (req, res) => {
   req.flash('success_register_msg', 'You are logged out');
   res.redirect('/users/login');
 });
+
+// Add add_article route
+router.get('/articles/add', ensureAuthenticated, function(req,res)
+{
+  res.render('add_article', {title:'Add Article', user: req.user});
+});
+
+// Add article
+router.post('/articles/add', ensureAuthenticated, article_controller.addArticle);
 
 
 
