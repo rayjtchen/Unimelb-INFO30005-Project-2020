@@ -4,6 +4,8 @@ var router = express.Router();
 
 //Bring in Models
 let Article = require('../models/article');
+let Comment = require('../models/comment');
+var comment_controller = require('../controllers/comment_controller.js');
 
 var findAllArticles = function (req, res)
 {
@@ -16,13 +18,46 @@ var findAllArticles = function (req, res)
         else
         {
             res.render('articles',
-                {
-                    title:'Articles',
-                    articles:articles
-                });
+            {
+                title:'Articles',
+                articles:articles
+            });
         }
     });
 };
+
+// Get Single Article
+var findOneArticle = function (req, res)
+{
+    Article.findById(req.params.id, function(err,article)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            comment_controller.findAllComment(article._id)
+                .then((comments)=>{
+                    console.log(comments);
+                    res.render('article_id',
+                    {
+                        article:article,
+                        comments:comments
+                    });
+                })
+                .catch((message)=>{
+                    res.render('article_id',
+                    {
+                        article:article,
+                        message:message
+                    });
+                })
+        }
+    });
+};
+
+
 
 var addArticle = function(req,res)
 {
@@ -52,3 +87,4 @@ var addArticle = function(req,res)
 
 module.exports.findAllArticles = findAllArticles;
 module.exports.addArticle = addArticle;
+module.exports.findOneArticle = findOneArticle;

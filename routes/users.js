@@ -5,6 +5,7 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../models/auth');
 
 var users_controller = require('../controllers/users_controller');
 var article_controller = require('../controllers/article_controller.js');
+var comment_controller = require('../controllers/comment_controller.js');
 var validator = require('../controllers/validator');
 var User = require('../models/user');
 
@@ -61,6 +62,8 @@ router.get('/articles/add', ensureAuthenticated, function(req,res)
 // Add article
 router.post('/articles/add', ensureAuthenticated, article_controller.addArticle);
 
+//Add comment
+router.post('/comment/:id', ensureAuthenticated, comment_controller.addComment);
 
 
 module.exports = router;
