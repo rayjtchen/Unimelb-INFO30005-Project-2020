@@ -9,7 +9,7 @@ Login: https://info30005-project-umsv.herokuapp.com/users/login
     
 Register: https://info30005-project-umsv.herokuapp.com/users/register
     
-Dashborad (need authentication): https://info30005-project-umsv.herokuapp.com/users/dashboard
+Dashboard (need authentication): https://info30005-project-umsv.herokuapp.com/users/dashboard
 
 
 **2.  articles:** 
