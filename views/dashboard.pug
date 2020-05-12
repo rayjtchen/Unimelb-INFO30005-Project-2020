@@ -1,7 +1,15 @@
 extends layout.pug
 
+
+
 block content
     h1 #{title}
-    p Welcome User: #{user.username}
+    p Welcome! #{user.username}
     br
     a.btn.btn-secondary(href='/users/logout') Logout
+    style.
+        p {
+            font-size: xx-large;
+            padding-top: 20px;
+            font-family: Helvetica, Arial, sans-serif;
+        }

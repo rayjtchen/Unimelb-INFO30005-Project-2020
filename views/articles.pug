@@ -6,3 +6,13 @@ block content
         each article, i in articles
             li
                 a(href="/petition/articles/" + article._id)= article.title
+
+    style.
+        h1 {
+            padding-top: 15px;
+        }
+        ul {
+            list-style: none;
+            font-size: larger;
+            padding-left: initial;
+        }
