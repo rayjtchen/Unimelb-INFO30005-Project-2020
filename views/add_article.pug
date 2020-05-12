@@ -7,8 +7,10 @@ block content
     form(method = 'POST', action = '/users/articles/add')
         label Author:
         input.from-control(name='author',type='text', value=user.username, readonly)
+        br
         label Email:
         input.from-control(name='author',type='text', value=user.email, readonly)
+        br
         label Category:
         select#category(name='category')
             option(value='Learning') Learning
@@ -16,12 +18,16 @@ block content
             option(value='Social') Social
             option(value='Safety') Safety
             option(value='Other') Other
+        br
         label Title:
         input.from-control(name='title',type='text')
+        br
         label Summary:
         textarea.from-control(name='summary')
+        br
         label Body:
         textarea.from-control(name='body')
+        br
         br
         input.btn.btn-primary(type='submit', value='Submit')
 
