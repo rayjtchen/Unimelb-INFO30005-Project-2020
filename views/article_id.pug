@@ -1,56 +1,70 @@
 extends layout
 
 block content
-    .bg-text
-        h1= article.title
-        h5= "by " + article.author
-        h5= article.author_email
-        h4= article.body
-        br
-        br
-        br
-        p comment:
-        -if(comment != [])
-            ul
-                each comment, i in comments
-                    li
-                        strong Author:&nbsp
-                        = comment.author
-                        br
-                        strong Date:&nbsp
-                        = comment.date
-                        br
-                        strong Content:&nbsp
-                        = comment.body
-                    br
+    link(rel='stylesheet' href='/stylesheets/timezone_css/bootstrap.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/owl.carousel.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/flaticon.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/slicknav.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/animate.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/magnific-popup.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/fontawesome-all.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/themify-icons.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/slick.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/nice-select.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/style.css')
 
-        form(method = 'POST', action = '/users/comment/'+ article._id)
-            label Post your comment:
-            br
-            textarea.from-control(name='body')
-            br
-            input.btn.btn-primary(type = 'submit', value = 'Post Comment')
-        style.
-            h5, li, form {
-                text-align: left;
-            }
-            h1 {
-                text-align: left;
-                font-family: Georgia;
-            }
-            p {
-                text-align: left;
-                font-family: "Lucida Console";
-                size: 12px;
-            }
-            h4 {
-                text-align: left;
-                font-family: Arial;
-                font-size: 20px
-            }
-            h5 {
-                text-align: left;
-                font-family: Verdana;
-                font-style: inherit;
-                font-size: 12px;
-            }
+    //image_slider
+    //link(rel='stylesheet' href='/stylesheets/image_slider/css/style.css')
+    //script(src='/stylesheets/image_slider/js/index.js')
+
+    section.blog_area.single-post-area.section-padding
+        .container
+            .row
+                .col-lg-8.posts-list
+                    .single-post
+                        .blog_details
+                            h2 #{article.title}
+                            ul.blog-info-link.mt-3.mb-4
+                                li
+                                    a(href='#')
+                                        i.fa.fa-user
+                                        |  #{article.category}
+                                li
+                                    a(href='#')
+                                        i.fa.fa-comments
+                                        |  #{article.support} Supports
+                            p
+                                | #{article.body}
+
+                    .blog-author
+                        .media.align-items-center
+                            img(src='/image/head-icon.png' alt='')
+                            .media-body
+
+                                h4 #{article.author}
+                                p
+                                    | Contect: #{article.author_email}
+                    .comments-area
+                        h4 Comments
+                            -if (comment != [])
+                                each comment, i in comments
+                                    - if(i % 2 == 0)
+                                            .card.border-light.mb-3(style='max-width: 65rem;')
+                                                .card-header(style='background-color: light grey;')
+                                                    p By: #{comment.author} - #{comment.date.toISOString().slice(0, 10)}
+                                                        p(style='color:black;') #{comment.body}
+                                    - else
+                                        .card.border-light.mb-3(style='max-width: 65rem;')
+                                                .card-header(style='background-color: white;')
+                                                    p By: #{comment.author} - #{comment.date.toISOString().slice(0, 10)}
+                                                     p(style='color:black;') #{comment.body}
+
+                    .comment-form.inset
+                        h4 Post your comment:
+                        form#commentForm.form-contact.comment_form(method = 'POST', action = '/users/comment/' + article._id)
+                            .row
+                                .col-12
+                                    .form-group
+                                        textarea.from-control.w-100(name='body' cols='30' rows='9')
+                            .form-group
+                                input.btn.btn-primary(type = 'submit', value = 'Post Comment')

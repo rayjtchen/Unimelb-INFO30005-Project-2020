@@ -18,6 +18,7 @@ block content
             .row
                 .col-lg-8.mb-5.mb-lg-0
                     .blog_left_sidebar
+                        h1 Articles
                         each article, i in articles
                             article.blog_item
                                 .blog_item_img
@@ -35,7 +36,7 @@ block content
                                             img.card-img.rounded-0(src='/image/article_type/other.jpg' alt='Other')
                                     a.blog_item_date(href="/petition/articles/" + article._id)
                                         h3 #{article.support}
-                                        img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='')
+                                        img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
 
                                 .blog_details
                                     a.d-inline-block(href="/petition/articles/" + article._id)

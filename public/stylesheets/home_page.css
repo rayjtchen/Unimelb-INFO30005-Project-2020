@@ -1,5 +1,4 @@
 
-
 .hp {
     color: #fff;
     font-family: sans-serif;
@@ -48,13 +47,9 @@ h1 {
     background-color: #69b9ff;
 }
 
-
-
 .content1{
     height: 100vh;
 }
-
-
 
 .bg_welcome_image
 {
@@ -79,9 +74,6 @@ h1 {
     transform: translate(-50%, -50%);
     color: white;
 }
-
-
-
 
 /* Position text in the middle of the page/image */
 .home_page_welcome_message {
