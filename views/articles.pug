@@ -4,15 +4,23 @@ block content
     .bg-text
         h1 #{title}
         each article, i in articles
-            ul
-                a(href="/petition/articles/" + article._id)= article.title
+            dl
+                 dt
+                    a(href="/petition/articles/" + article._id)= article.title
+                 dd #{article.summary}
 
         style.
             h1 {
                 padding-top: 15px;
             }
 
-            ul {
+            dl {
                 list-style: none;
                 padding-left: initial;
+                border: 2px solid white;
+                box-sizing: border-box;
+                font-size: larger;
+            }
+            dd{
+                font-size: small;
             }
