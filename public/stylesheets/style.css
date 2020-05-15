@@ -8,42 +8,36 @@ body, html{
   margin: 0;
 }
 
+
+
+.container{
+  /*font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;*/
+  /*color: white;*/
+  /*text-shadow: 2px 2px 2px grey;*/
+  /*margin: -50px -50px -50px -50px;*/
+  /*background-image: url("../image/user_background.jpg");*/
+  height: 100%;
+  margin: 0;
+}
+
+
 a {
   color: white;
 }
 
-.bg-image
-{
-  /* The image used */
-  background-image: url("https://about.unimelb.edu.au/__data/assets/image/0024/108843/University-Welcome-sign.jpg");
-
-  /* Add the blur effect */
-  filter: blur(8px);
-  -webkit-filter: blur(8px);
-
-  /* Full height */
-  height: 100%;
-
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-}
 
 
-/* Position text in the middle of the page/image */
-.container {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  border: 3px solid #f1f1f1;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 2;
-  width: 80%;
-  padding: 20px;
-  text-align: center;
-}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
