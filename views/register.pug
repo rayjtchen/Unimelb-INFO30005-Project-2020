@@ -1,8 +1,10 @@
 extends layout.pug
 
 block content
-    .bg-text
-        h1 #{title}
+
+    .wrapper.fadeInDown
+        h1 Register
+        img(src='/image/register.png' alt='Register' width= '100px' height='100px')
         include register_alert
         form(method = 'POST', action = '/users/register')
             label Email:
@@ -15,8 +17,3 @@ block content
             input.form-control(name = 'password2', type = 'password')
             br
             input.btn.btn-primary(type = 'submit', value = 'Submit')
-
-        style.
-            h1 {
-                padding-top: 15px;
-            }

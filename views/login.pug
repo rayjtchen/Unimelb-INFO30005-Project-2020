@@ -1,8 +1,10 @@
 extends layout.pug
 
 block content
-    .bg-text
+
+    .wrapper.fadeInDown
         h1 Login
+        img(src='/image/login.png' alt='log in' width= '100px' height='100px')
         include login_alert
         form(method = 'POST', action = '/users/login')
             label UM Email:
@@ -14,7 +16,3 @@ block content
             br
             br
             a.btn.btn-secondary(href='/users/register') Register
-        style.
-            h1 {
-                padding-top: 15px;
-            }
