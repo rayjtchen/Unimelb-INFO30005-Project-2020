@@ -1,27 +1,52 @@
 extends layout
 
 block content
-    .bg-text
-        h1 #{title}
-        each article, i in articles
-            dl
-                dt
-                    a(href="/petition/articles/" + article._id)= article.title
-                dd #{article.summary}
+    // CSS here
+    link(rel='stylesheet' href='/stylesheets/timezone_css/bootstrap.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/owl.carousel.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/flaticon.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/slicknav.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/animate.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/magnific-popup.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/fontawesome-all.min.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/themify-icons.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/slick.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/nice-select.css')
+    link(rel='stylesheet' href='/stylesheets/timezone_css/style.css')
+    section.blog_area.section-padding
+        .container
+            .row
+                .col-lg-8.mb-5.mb-lg-0
+                    .blog_left_sidebar
+                        each article, i in articles
+                            article.blog_item
+                                .blog_item_img
+                                    - var type = article.category
+                                    case type
+                                        when 'Learning'
+                                            img.card-img.rounded-0(src='/image/article_type/learning.jpg' alt='Learning')
+                                        when 'Safety'
+                                            img.card-img.rounded-0(src='/image/article_type/safety.png' alt='Safety')
+                                        when 'Facility'
+                                            img.card-img.rounded-0(src='/image/article_type/facility.png' alt='Facility')
+                                        when 'Social'
+                                            img.card-img.rounded-0(src='/image/article_type/social.jpg' alt='Social')
+                                        default
+                                            img.card-img.rounded-0(src='/image/article_type/other.jpg' alt='Other')
+                                    a.blog_item_date(href="/petition/articles/" + article._id)
+                                        h3 #{article.support}
+                                        img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='')
 
-        style.
-            h1 {
-                padding-top: 15px;
-            }
-
-            dl {
-                list-style: none;
-                padding-left: initial;
-                border: 2px solid white;
-                box-sizing: border-box;
-                font-size: larger;
-            }
-
-            dd {
-                font-size: small;
-            }
+                                .blog_details
+                                    a.d-inline-block(href="/petition/articles/" + article._id)
+                                        h2 #{article.title}
+                                    p #{article.summary}
+                                    ul.blog-info-link
+                                        li
+                                            a(href='#')
+                                                i.fa.fa-user
+                                                |  #{article.category}
+                                        li
+                                            a(href='#')
+                                                i.fa.fa-comments
+                                                |  #{article.date.toISOString().replace(/T/, ' ').replace(/\..+/, '')}
