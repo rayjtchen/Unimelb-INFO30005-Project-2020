@@ -19,7 +19,7 @@ block content
                 .col-lg-8.mb-5.mb-lg-0
                     .blog_left_sidebar
                         h1 Articles
-                        each article, i in articles
+                        each article, i in articles.sort(function(a, b) {return b.support - a.support})
                             article.blog_item
                                 .blog_item_img
                                     - var type = article.category
