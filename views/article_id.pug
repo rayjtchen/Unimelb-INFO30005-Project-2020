@@ -3,12 +3,9 @@ extends layout
 block content
     .bg-text
         h1= article.title
-        p Author:
-        h5= article.author
-        p Author contact:
+        h5= "by " + article.author
         h5= article.author_email
-        p content:
-        p= article.body
+        h4= article.body
         br
         br
         br
@@ -25,6 +22,7 @@ block content
                         br
                         strong Content:
                         = comment.body
+                    br
 
         form(method = 'POST', action = '/users/comment/'+ article._id)
             label Post your comment:
@@ -33,6 +31,26 @@ block content
             br
             input.btn.btn-primary(type = 'submit', value = 'Post Comment')
         style.
-            p, h1, h5, li, form {
+            h5, li, form {
                 text-align: left;
+            }
+            h1 {
+                text-align: left;
+                font-family: Georgia;
+            }
+            p {
+                text-align: left;
+                font-family: "Lucida Console";
+                size: 12px;
+            }
+            h4 {
+                text-align: left;
+                font-family: Arial;
+                font-size: 20px
+            }
+            h5 {
+                text-align: left;
+                font-family: Verdana;
+                font-style: inherit;
+                font-size: 12px;
             }
