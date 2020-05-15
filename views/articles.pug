@@ -1,17 +1,18 @@
 extends layout
 
 block content
-    h1 #{title}
-    each article, i in articles
-        ul
-            a(href="/petition/articles/" + article._id)= article.title
+    .bg-text
+        h1 #{title}
+        each article, i in articles
+            ul
+                a(href="/petition/articles/" + article._id)= article.title
 
-    style.
-        h1 {
-            padding-top: 15px;
-        }
+        style.
+            h1 {
+                padding-top: 15px;
+            }
 
-        ul {
-            list-style: none;
-            padding-left: initial;
-        }
+            ul {
+                list-style: none;
+                padding-left: initial;
+            }

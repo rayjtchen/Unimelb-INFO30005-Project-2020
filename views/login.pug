@@ -1,19 +1,20 @@
 extends layout.pug
 
 block content
-    h1 Login
-    include login_alert
-    form(method = 'POST', action = '/users/login')
-        label UM Email:
-        input.form-control(name = 'email', type = 'text')
-        label Password:
-        input.form-control(name = 'password', type = 'password')
-        br
-        input.btn.btn-primary(type = 'submit', value = 'Log In')
-        br
-        br
-        a.btn.btn-secondary(href='/users/register') Register
-    style.
-        h1 {
-            padding-top: 15px;
-        }
+    .bg-text
+        h1 Login
+        include login_alert
+        form(method = 'POST', action = '/users/login')
+            label UM Email:
+            input.form-control(name = 'email', type = 'text')
+            label Password:
+            input.form-control(name = 'password', type = 'password')
+            br
+            input.btn.btn-primary(type = 'submit', value = 'Log In')
+            br
+            br
+            a.btn.btn-secondary(href='/users/register') Register
+        style.
+            h1 {
+                padding-top: 15px;
+            }

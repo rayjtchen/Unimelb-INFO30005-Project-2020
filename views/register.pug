@@ -1,21 +1,22 @@
 extends layout.pug
 
 block content
-    h1 #{title}
-    include register_alert
-    form(method = 'POST', action = '/users/register')
-        label Email:
-        input.form-control(name = 'email', type = 'text')
-        label Username:
-        input.form-control(name = 'username', type = 'text')
-        label Password:
-        input.form-control(name = 'password', type = 'password')
-        label Enter the password again:
-        input.form-control(name = 'password2', type = 'password')
-        br
-        input.btn.btn-primary(type = 'submit', value = 'Submit')
+    .bg-text
+        h1 #{title}
+        include register_alert
+        form(method = 'POST', action = '/users/register')
+            label Email:
+            input.form-control(name = 'email', type = 'text')
+            label Username:
+            input.form-control(name = 'username', type = 'text')
+            label Password:
+            input.form-control(name = 'password', type = 'password')
+            label Enter the password again:
+            input.form-control(name = 'password2', type = 'password')
+            br
+            input.btn.btn-primary(type = 'submit', value = 'Submit')
 
-    style.
-        h1 {
-            padding-top: 15px;
-        }
+        style.
+            h1 {
+                padding-top: 15px;
+            }

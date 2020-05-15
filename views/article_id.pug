@@ -1,33 +1,34 @@
 extends layout
 
 block content
-    h1= article.title
-    p Author:
-    h5= article.author
-    p Author contact:
-    h5= article.author_email
-    p content:
-    p= article.body
-    br
-    br
-    br
-    p comment:
-    -if(comment != [])
-        ul
-            each comment, i in comments
-                li
-                    strong Author:
-                    = comment.author
-                    br
-                    strong date:
-                    = comment.date
-                    br
-                    strong Content:
-                    = comment.body
+    .bg-text
+        h1= article.title
+        p Author:
+        h5= article.author
+        p Author contact:
+        h5= article.author_email
+        p content:
+        p= article.body
+        br
+        br
+        br
+        p comment:
+        -if(comment != [])
+            ul
+                each comment, i in comments
+                    li
+                        strong Author:
+                        = comment.author
+                        br
+                        strong date:
+                        = comment.date
+                        br
+                        strong Content:
+                        = comment.body
 
-    form(method = 'POST', action = '/users/comment/'+ article._id)
-        label Post your comment:
-        br
-        textarea.from-control(name='body')
-        br
-        input.btn.btn-primary(type = 'submit', value = 'Post Comment')
+        form(method = 'POST', action = '/users/comment/'+ article._id)
+            label Post your comment:
+            br
+            textarea.from-control(name='body')
+            br
+            input.btn.btn-primary(type = 'submit', value = 'Post Comment')
