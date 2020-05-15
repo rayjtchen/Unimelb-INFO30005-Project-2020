@@ -13,39 +13,6 @@ body, html{
   position: relative;*/
 }
 
-
-
-.my_container1
-{
-  font: 16px "Lucida Grande", Helvetica, Arial, sans-serif;
-  color: white;
-  text-shadow: 2px 2px 2px grey;
-  margin: -50px -50px -50px -50px;
-  /*background-image: url("../image/user_background.jpg");*/
-  height: 100%;
-  margin: 0;
-
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-
-/* Position text in the middle of the page/image */
-.welcome_message {
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
-  color: white;
-  font-weight: bold;
-  position: relative;
-  left: 50%;
-  transform: translate(-50%, -150%);
-  z-index: 2;
-  width: 50%;
-  text-align: center;
-}
-
 .bg-text {
   background-color: rgb(0,0,0); /* Fallback color */
   background-color: rgba(0,0,0, 0.4); /* Black w/opacity/see-through */
