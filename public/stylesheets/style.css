@@ -95,17 +95,30 @@ body, html{
   }
 }
 
-#formFooter {
-  background-color: #f6f6f6;
-  border-top: 1px solid #dce8f1;
-  padding: 25px;
-  text-align: center;
-  -webkit-border-radius: 0 0 10px 10px;
-  border-radius: 0 0 10px 10px;
-}
-
 a {
   color: white;
+}
+
+.article-form{
+  /*background: #fff;*/
+  margin-top: 10%;
+  margin-bottom: 5%;
+  width: 70%;
+}
+
+.article-form h1{
+  margin-bottom: 2%;
+  margin-top: -10%;
+  text-align: center;
+  color: black;
+}
+
+.article_icon{
+  text-align: center;
+}
+
+.article-form form .row{
+  margin-top: 3%;
 }
 
 

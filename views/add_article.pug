@@ -1,38 +1,105 @@
 extends layout
 
 block content
-    .bg-text
-        h1 #{title}
-        include login_alert
-        //add article to DB
-        form(method = 'POST', action = '/users/articles/add')
-            label Author:
-            input.from-control(name='author',type='text', value=user.username, readonly)
-            br
-            label Email:
-            input.from-control(name='author',type='text', value=user.email, readonly)
-            br
-            label Category:
-            select#category(name='category')
-                option(value='Learning') Learning
-                option(value='Facility') Facility
-                option(value='Social') Social
-                option(value='Safety') Safety
-                option(value='Other') Other
-            br
-            label Title:
-            input.from-control(name='title',type='text')
-            br
-            label Summary:
-            textarea.from-control(name='summary')
-            br
-            label Body:
-            textarea.from-control(name='body')
-            br
-            br
-            input.btn.btn-primary(type='submit', value='Submit')
+    //link#bootstrap-css(href='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css' rel='stylesheet')
+    //script(src='//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js')
+    //script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js')
 
-        style.
-            h1 {
-                padding-top: 15px;
-            }
+    include login_alert
+    //add article to DB
+    .container.article-form.fadeInDown
+        form(method = 'POST', action = '/users/articles/add')
+            h1 #{title}
+            .article_icon
+                img(src='/image/add.png' alt='Petition', width = '100px', height = '100px')
+
+            .row
+                .col-md-6
+                    .form-group
+                        input.form-control(type='text' name='author' value=user.username, readonly)
+                    .form-group
+                        input.form-control(type='text' name='Email' value=user.email, readonly)
+                    .form-group
+                        select#category(name='category')
+                            option(value='', disabled selected) Find a category for your petition
+                            option(value='Learning') Learning
+                            option(value='Facility') Facility
+                            option(value='Social') Social
+                            option(value='Safety') Safety
+                            option(value='Other') Other
+                    .form-group
+                        input.form-control(type='text' name='title' placeholder='Title of your petition.' value='')
+                    .form-group
+                        textarea.form-control(name='summary' placeholder='Summary of your petition.' style='width: 100%; height: 150px;')
+                    .form-group
+                        input.btn.btn-primary(type='submit', value='Submit')
+                .col-md-6
+                    .form-group
+                        textarea.form-control(name='body' placeholder='Your detailed petition' style='width: 100%; height: 385px;')
+    style.
+        select{
+            height: 40px;
+            width: 412px;
+        }
+
+
+
+
+        /*    //br*/
+        /*    //label Title:*/
+        /*    //input.from-control(name='title',type='text')*/
+        /*    //br*/
+        /*    //label Summary:*/
+        /*    //textarea.from-control(name='summary')*/
+        /*    //br*/
+        /*    //label Body:*/
+        /*    //textarea.from-control(name='body')*/
+        /*    //br*/
+        /*    //br*/
+        /*    //input.btn.btn-primary(type='submit', value='Submit')*/
+
+        /*//style.*/
+        /*//    h1 {*/
+        /*//        padding-top: 15px;*/
+        /*//    }*/
+        /*//*/
+
+    //h1 #{title}
+    //
+    //include login_alert
+    ////add article to DB
+    //form(method = 'POST', action = '/users/articles/add')
+    //    label Author:
+    //    input.from-control(name='author',type='text', value=user.username, readonly)
+    //    br
+    //    label Email:
+    //    input.from-control(name='author',type='text', value=user.email, readonly)
+    //    br
+    //    label Category:
+    //    select#category(name='category')
+    //        option(value='Learning') Learning
+    //        option(value='Facility') Facility
+    //        option(value='Social') Social
+    //        option(value='Safety') Safety
+    //        option(value='Other') Other
+    //    br
+    //    label Title:
+    //    input.from-control(name='title',type='text')
+    //    br
+    //    label Summary:
+    //    textarea.from-control(name='summary')
+    //    br
+    //    label Body:
+    //    textarea.from-control(name='body')
+    //    br
+    //    br
+    //    input.btn.btn-primary(type='submit', value='Submit')
+    //
+    //style.
+    //    h1 {
+    //        padding-top: 15px;
+    //
+    //
+    //
+    //
+    //
