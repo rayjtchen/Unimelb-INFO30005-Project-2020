@@ -9,7 +9,6 @@ block content
             h1 #{title}
             .article_icon
                 img(src='/image/add.png' alt='Petition', width = '100px', height = '100px')
-
             .row
                 .col-md-6
                     .form-group
@@ -28,11 +27,13 @@ block content
                         input.form-control(type='text' name='title' placeholder='Title of your petition.' value='')
                     .form-group
                         textarea.form-control(name='summary' placeholder='Summary of your petition.' style='width: 100%; height: 150px;')
-                    .form-group
-                        input.btn.btn-primary(type='submit', value='Submit')
                 .col-md-6
                     .form-group
                         textarea.form-control(name='body' placeholder='Your detailed petition' style='width: 100%; height: 385px;')
+            .row
+                .col
+                    .form-group.text-center
+                        input.btn.btn-primary(type='submit', value='Submit')
     style.
         select{
             padding-left: 14px;
