@@ -1,16 +1,7 @@
 extends layout
 
 block content
-    // CSS here
-    link(rel='stylesheet' href='/stylesheets/timezone_css/owl.carousel.min.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/flaticon.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/slicknav.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/animate.min.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/magnific-popup.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/fontawesome-all.min.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/themify-icons.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/slick.css')
-    link(rel='stylesheet' href='/stylesheets/timezone_css/nice-select.css')
+    //from colorlib.com https://colorlib.com/wp/templates/
     link(rel='stylesheet' href='/stylesheets/timezone_css/style.css')
     section.blog_area.section-padding
         .container
@@ -50,11 +41,15 @@ block content
                                             a(href='#')
                                                 i.fa.fa-comments
                                                 |  #{article.date.toISOString().replace(/T/, ' ').replace(/\..+/, '')}
+                //Category still work in progress!!!!
                 .col-lg-4
                     .blog_right_sidebar
                         .post_category_widget(style='padding:50px;background-color:lightgrey;margin: 80px;')
                             h4.widget_title Category
                             ul.list.cat-list
+                                li
+                                    a.d-flex(href='#')
+                                        p(style="color:red;") Category still work in progress! (will be completed in D4)
                                 li
                                     a.d-flex(href='#')
                                         p Learning
@@ -70,3 +65,5 @@ block content
                                 li
                                     a.d-flex(href='#')
                                         p Other
+
+            p Copyright ©2020 All rights reserved | This template is made with by Colorlib

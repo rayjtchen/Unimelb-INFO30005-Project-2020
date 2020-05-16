@@ -42,3 +42,7 @@ https://bootswatch.com/
 
 The three javascript files in layout.pug was obtain from Bootstrap, the link is down below
 https://getbootstrap.com/docs/4.4/getting-started/introduction/
+
+The CSS file in article.pug and article_id.pug was obtain from colorlib, the link is down below
+https://colorlib.com/wp/templates/
+https://colorlib.com/preview/#timezone
