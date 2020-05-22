@@ -2,14 +2,41 @@ extends layout.pug
 
 
 block content
-    .bg-text
-        h1 #{title}
-        p Welcome! #{user.username}
-        br
-        a.btn.btn-secondary(href='/users/logout') Logout
-        style.
-            p {
-                font-size: xx-large;
-                padding-top: 20px;
-                font-family: Helvetica, Arial, sans-serif;
+    .dashboard
+        .dashboard-text
+            h1 #{title}
+            p Welcome! #{user.username}
+        .container
+            //h1 #{title}
+            //p Welcome! #{user.username}
+            .events-features
+                .row
+                    ul
+                        li.highlighted View your petition articles
+                        each article, i in articles
+                            li
+                                a(href="/petition/articles/" + article._id)
+                                    u #{article.title}
+                                .pull-right
+                                    img(src='/image/article_icon/support.png' style='width:20px;height:20px;' alt='Support')
+                                    i #{article.support} &nbsp
+                                    a.btn.btn-danger.delete-article(href='#', data-id=article._id) Delete
+                            |
+            a.btn.btn-secondary(href='/users/logout') Logout
+
+
+    style.
+        p {
+            font-size: xx-large;
+            padding-top: 20px;
+            font-family: Helvetica, Arial, sans-serif;
             }
+        .container{
+            height: 100vh;
+            margin: auto;
+            overflow: auto;
+            text-align: center;
+        }
+        .dashboard-text{
+            text-align: center;
+        }

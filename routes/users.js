@@ -6,6 +6,7 @@ const { ensureAuthenticated, forwardAuthenticated } = require('../models/auth');
 var users_controller = require('../controllers/users_controller');
 var article_controller = require('../controllers/article_controller.js');
 var comment_controller = require('../controllers/comment_controller.js');
+var dashboard_controller = require('../controllers/dashboard_controller.js');
 var validator = require('../controllers/validator');
 var User = require('../models/user');
 
@@ -42,9 +43,10 @@ router.post('/login', (req, res, next) => {
 })
 
 // render dashboard
-router.get('/dashboard', ensureAuthenticated,function(req, res){
-  res.render('dashboard', {user: req.user});
-});
+// router.get('/dashboard', ensureAuthenticated,function(req, res){
+//   res.render('dashboard', {user: req.user});
+// });
+router.get('/dashboard', ensureAuthenticated, dashboard_controller.findUserArticles);
 
 // Logout
 router.get('/logout', (req, res) => {
