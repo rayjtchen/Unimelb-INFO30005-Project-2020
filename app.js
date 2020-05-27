@@ -21,6 +21,14 @@ require('./models/db.js');
 // Init App
 var app = express();
 
+//check if user is longin
+app.use(function(req,res,next){
+  if (req.user) {
+    res.locals.user = req.user;
+  }
+  next();
+});
+
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'pug');
