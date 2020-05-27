@@ -8,7 +8,7 @@ block content
             .row
                 .col-lg-8.mb-5.mb-lg-0
                     .blog_left_sidebar
-                        h1 Articles
+                        h1 #{title}
                         each article, i in articles.sort(function(a, b) {return b.support - a.support})
                             article.blog_item
                                 .blog_item_img
@@ -41,7 +41,7 @@ block content
                                             a(href='#')
                                                 i.fa.fa-comments
                                                 |  #{article.date.toISOString().replace(/T/, ' ').replace(/\..+/, '')}
-                //Category still work in progress!!!!
+
                 .col-lg-4
                     .blog_right_sidebar
                         .post_category_widget(style='padding:50px;background-color:lightgrey;margin: 80px;')

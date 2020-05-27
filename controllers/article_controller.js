@@ -19,7 +19,7 @@ var findAllArticles = function (req, res)
         {
             res.render('articles',
             {
-                title:'Articles',
+                title:'Articles - All',
                 articles:articles
             });
         }
@@ -28,7 +28,6 @@ var findAllArticles = function (req, res)
 
 var findAllCategoty = function (req, res)
 {
-    console.log(req.params.category);
     Article.find({"category": req.params.category}, function(err,articles)
     {
         if(err)
@@ -39,12 +38,43 @@ var findAllCategoty = function (req, res)
         {
             res.render('articles',
                 {
-                    title:'Articles',
+                    title:'Articles - ' + req.params.category,
                     articles:articles
                 });
         }
     });
 };
+
+var searchArticle = function (req, res)
+{
+    Article.find({"title": new RegExp(req.query.search, "i")}, function(err,articles)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            if(articles.length == 0)
+            {
+                res.render('articles',
+                    {
+                        title:'Article not found',
+                        articles:articles
+                    });
+            }
+            else
+            {
+                res.render('articles',
+                    {
+                        title:'We found ' + articles.length + ' article(s)',
+                        articles:articles
+                    });
+            }
+        }
+    });
+};
+
 
 
 
@@ -111,3 +141,4 @@ module.exports.findAllArticles = findAllArticles;
 module.exports.addArticle = addArticle;
 module.exports.findOneArticle = findOneArticle;
 module.exports.findAllCategoty = findAllCategoty;
+module.exports.searchArticle = searchArticle;
