@@ -8,5 +8,6 @@ router.get('/articles/summary', article_controller.findAllArticles);
 
 router.get('/articles/:id', article_controller.findOneArticle);
 
+router.get('/articles/category/:category', article_controller.findAllCategoty);
 
 module.exports = router;

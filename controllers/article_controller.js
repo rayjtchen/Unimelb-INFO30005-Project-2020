@@ -26,6 +26,29 @@ var findAllArticles = function (req, res)
     });
 };
 
+var findAllCategoty = function (req, res)
+{
+    console.log(req.params.category);
+    Article.find({"category": req.params.category}, function(err,articles)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+            res.render('articles',
+                {
+                    title:'Articles',
+                    articles:articles
+                });
+        }
+    });
+};
+
+
+
+
 // Get Single Article
 var findOneArticle = function (req, res)
 {
@@ -39,7 +62,6 @@ var findOneArticle = function (req, res)
         {
             comment_controller.findAllComment(article._id)
                 .then((comments)=>{
-                    console.log(comments);
                     res.render('article_id',
                     {
                         article:article,
@@ -88,3 +110,4 @@ var addArticle = function(req,res)
 module.exports.findAllArticles = findAllArticles;
 module.exports.addArticle = addArticle;
 module.exports.findOneArticle = findOneArticle;
+module.exports.findAllCategoty = findAllCategoty;
