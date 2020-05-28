@@ -3,7 +3,11 @@ const User = require('../models/user');
 
 exports.createUser  = [
     check('email', 'Email is required').not().isEmpty(),
-    check('email', 'Email is not valid').isEmail(),
+    check('email', 'Email is not valid').isEmail().custom( (value)=>{
+        if (/@student.unimelb.edu.au\s*$/.test(value)) {
+           return true;
+        }
+    }),
     check('email', 'Email is already registered').custom(async (value) => {
         let user = await User.findOne({email: value});
         if (user!== null){

@@ -76,7 +76,6 @@ router.post('/login', (req, res, next) => {
 router.get('/dashboard', ensureAuthenticated, dashboard_controller.findUserArticles);
 
 router.delete('/dashboard/:id', function(req, res){
-  console.log("111");
   var query = {_id:req.params.id};
   Article.remove(query, function(err){
     if (err){
