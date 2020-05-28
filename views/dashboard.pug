@@ -2,13 +2,11 @@ extends layout.pug
 
 
 block content
-    .dashboard
+    .dashboard(style='padding-top:80px;height:60%')
         .dashboard-text
             h1 #{title}
             p Welcome! #{user.username}
         .container
-            //h1 #{title}
-            //p Welcome! #{user.username}
             .events-features
                 .row
                     ul
@@ -28,13 +26,13 @@ block content
     style.
         p {
             font-size: xx-large;
-            padding-top: 20px;
+            /*padding-top: 20px;*/
             font-family: Helvetica, Arial, sans-serif;
             }
         .container{
-            height: 100vh;
-            margin: auto;
-            overflow: auto;
+            height: 100%;
+            /*margin: auto;*/
+            /*overflow: auto;*/
             text-align: center;
         }
         .dashboard-text{

@@ -37,6 +37,7 @@ body, html{
   width: 100%;
   min-height: 100%;
   padding: 20px;
+  position: absolute;
 }
 
 
@@ -67,7 +68,7 @@ a {
 }
 
 .article-form{
-  margin-top: 10%;
+  margin-top: 12%;
   margin-bottom: 5%;
   width: 70%;
 }
@@ -107,6 +108,7 @@ p{
 .events-features {
   text-align: left;
   width: 60%;
+  margin-top: auto;
   margin-left:auto;
   margin-right:auto;
 }
@@ -147,12 +149,3 @@ p{
   margin-top: -10px;
   margin-left: -10px;
 }
-
-/*.dashboard{*/
-/*  background-image: url("../image/dashboard.jpg");*/
-/*  background-repeat: no-repeat;*/
-/*  background-size: contain;*/
-/*  position: relative;*/
-/*  height: 100%;*/
-/*}*/
-                    
