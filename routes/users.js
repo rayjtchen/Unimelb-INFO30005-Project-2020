@@ -28,7 +28,28 @@ router.get('/login', function(req, res){
   res.render('login', {title:'Login'});
 });
 
-
+// login form
+router.get('/confirmation/:userId', function(req, res){
+  var userId = req.params.userId;
+  User.findOne({_id: userId}, function(err, foundObject) {
+    if(err)
+    {
+      console.log(err);
+    }else{
+      if(!foundObject) {
+        //user ID dont exit
+        req.flash('error_msg', 'Thank you, your unimelb email address have been verified. You can login now!');
+        res.redirect('/users/login');
+      }
+      else{
+        foundObject.confirm = true;
+        foundObject.save();
+        req.flash('success_register_msg', 'Thank you, your unimelb email address have been verified. You can login now!');
+        res.redirect('/users/login');
+      }
+    }
+  });
+});
 
 router.post('/register', validator.createUser, users_controller.registerNewUser);
 

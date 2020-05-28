@@ -19,6 +19,10 @@ module.exports = function(passport)
                     return done(null, false, { message: 'Email is not registered' });
                 }
                 // add email verify
+                if (!user.confirm)
+                {
+                    return done(null, false, { message: 'Please conform your unimelb email before login' });
+                }
 
                 // Check password
                 bcrypt.compare(password, user.password, (err, isMatch) =>
