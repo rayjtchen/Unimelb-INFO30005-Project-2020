@@ -9,6 +9,7 @@ var comment_controller = require('../controllers/comment_controller.js');
 var dashboard_controller = require('../controllers/dashboard_controller.js');
 var validator = require('../controllers/validator');
 var User = require('../models/user');
+let Article = require('../models/article');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -71,10 +72,19 @@ router.post('/login', (req, res, next) => {
 })
 
 // render dashboard
-// router.get('/dashboard', ensureAuthenticated,function(req, res){
-//   res.render('dashboard', {user: req.user});
-// });
+
 router.get('/dashboard', ensureAuthenticated, dashboard_controller.findUserArticles);
+
+router.delete('/dashboard/:id', function(req, res){
+  console.log("111");
+  var query = {_id:req.params.id};
+  Article.remove(query, function(err){
+    if (err){
+      console.log(err);
+    }
+    res.send('Success');
+  });
+});
 
 // Logout
 router.get('/logout', (req, res) => {
