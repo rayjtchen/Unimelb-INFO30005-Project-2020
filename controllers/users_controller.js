@@ -58,7 +58,7 @@ async function sendEmail(userEmail, userId) {
     var mailOptions = {
         from: 'umsv.team@gmail.com',
         to: userEmail,
-        subject: 'Sending Email using Node.js',
+        subject: 'UMSV - confirmation email',
         text: `Thank you for register UMSV
                 Here is your conformation link: http://localhost:3000/users/confirmation/` + userId
     };
