@@ -1,0 +1,75 @@
+extends layout
+
+block content
+    link(rel='stylesheet' href='/stylesheets/home_page&aboutus.css')
+    .content1
+        .bg_welcome_image
+            h1 About us
+            .container
+                .row
+                    .col-md-8
+                        p1 Who are we?
+                        br
+                        br
+                        p2 We are the&nbsp
+                        p3 University of Melbourne Student Voice.
+                        br
+                        br
+                        p2 We are a group of student from the University of Melbourne currently undertaking Web Information Technologies (INFO30005).&nbsp
+                        br
+                        br
+                        p2 This website is created as a project for the subject INFO30005.&nbsp
+                        p2 It is designed for students at the University of Melbourne by providing them a new convenient platform to raise their voice about their petitions.
+                        br
+                        br
+
+                    .col-md-4
+                        p4 Team members:
+                        br
+                        br
+                        ul.list.cat-list
+                            li
+                                p Ray Jui-Teng Chen
+                            li
+                                p Yuheng Sheng
+                            li
+                                p Zhiran Liu
+                            li
+                                p Zi Jin
+                .row
+                    .col-md-3
+                        img(src='/image/campus1.jpg' alt='unimelb campus', width = '300px', height = '300px')
+                    .col-md-3(style='padding-top:45px')
+                        img(src='/image/campus2.jpg' alt='unimelb campus', width = '300px', height = '300px')
+                    .col-md-3
+                        img(src='/image/campus3.jpg' alt='unimelb campus', width = '300px', height = '300px')
+                    .col-md-3(style='padding-top:45px')
+                        img(src='/image/campus4.jpg' alt='unimelb campus', width = '300px', height = '300px')
+
+
+            style.
+                h1{
+                    color: white;
+                    text-align: center;
+                    font-size: 50px;
+                    padding-top: 100px;
+                }
+                p1, p2, p3, p4, p{
+                    color: white;
+                }
+                p {
+                    font-size: 15px;
+                }
+                p4 {
+                    font-size: 25px;
+                }
+                p3 {
+                    font-style: italic;
+                }
+                p1{
+                    font-size: 30px;
+                }
+                img{
+                    padding: 30px;
+                    box-shadow: #0b0b0b;
+                }
