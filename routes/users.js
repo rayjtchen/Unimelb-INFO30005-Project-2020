@@ -38,7 +38,7 @@ router.get('/confirmation/:userId', function(req, res){
     }else{
       if(!foundObject) {
         //user ID dont exit
-        req.flash('error_msg', 'Thank you, your unimelb email address have been verified. You can login now!');
+        req.flash('error_msg', 'We could not found the verify link, please make sure it is correct');
         res.redirect('/users/login');
       }
       else{
