@@ -31,7 +31,7 @@ router.get('/login', function(req, res){
 // login form
 router.get('/confirmation/:userId', function(req, res){
   var userId = req.params.userId;
-  if(userId.length != 12)
+  if(userId.length != 24)
   {
     req.flash('error_msg', 'We could not found the verify link, please make sure it is correct');
     res.redirect('/users/login');
