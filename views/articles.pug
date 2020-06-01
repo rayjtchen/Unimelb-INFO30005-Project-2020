@@ -3,11 +3,30 @@ extends layout
 block content
     //from colorlib.com https://colorlib.com/wp/templates/
     link(rel='stylesheet' href='/stylesheets/timezone_css/style.css')
+
+    //image_slider still work in progress!!!!
+    script(src='/stylesheets/image_slider/js/index.js')
+    link(rel='stylesheet' href='/stylesheets/image_slider/css/style.css')
+
     section.blog_area.section-padding
         .container
             .row
                 .col-lg-8.mb-5.mb-lg-0
                     .blog_left_sidebar
+                        .slideshow_image-container
+                            .mySlides.fade_img
+                                .numbertext 1 / 3
+                                img(src='/image/blog_slogan/your_voice.png' style='width:100%')
+                            .mySlides.fade_img
+                                .numbertext 2 / 3
+                                img(src='/image/blog_slogan/your_voice.png' style='width:100%')
+                            .mySlides.fade_img
+                                .numbertext 3 / 3
+                                img(src='/image/blog_slogan/your_voice.png' style='width:100%')
+                            a.prev(onclick='plusSlides(-1)') &#x276E;
+                            a.next(onclick='plusSlides(1)') &#x276F;
+                            br
+                            br
                         h1 #{title}
                         each article, i in articles.sort(function(a, b) {return b.support - a.support})
                             article.blog_item
@@ -64,3 +83,5 @@ block content
                                         p Other
 
             p Copyright ©2020 All rights reserved | This template is made with by Colorlib
+    script.
+        showSlides(slideIndex);
