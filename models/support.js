@@ -26,4 +26,4 @@ let supportSchema = mongoose.Schema({
     }
 });
 
-let Support = module.exports = mongoose.model('Support', commentSchema);
+let Support = module.exports = mongoose.model('Support', supportSchema);
