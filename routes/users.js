@@ -29,7 +29,7 @@ router.get('/login', function(req, res){
   res.render('login', {title:'Login'});
 });
 
-// login form
+// verify email link
 router.get('/confirmation/:userId', function(req, res){
   var userId = req.params.userId;
   if(userId.length != 24)

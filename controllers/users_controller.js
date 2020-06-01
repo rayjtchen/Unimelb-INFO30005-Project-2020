@@ -34,7 +34,6 @@ var registerNewUser = function(req, res){
                         console.log(err);
 
                     }else{
-                        console.log('success');
                         req.flash('success_register_msg', 'Thank you for registration please verify your email');
                         res.redirect('/users/login');
                     }
