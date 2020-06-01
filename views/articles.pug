@@ -16,10 +16,10 @@ block content
                         .slideshow_image-container
                             .mySlides.fade_img
                                 .numbertext 1 / 3
-                                img(src='/image/blog_slogan/your_voice.png' style='width:100%')
+                                img(src='/image/blog_slogan/voice_matters.png' style='width:100%')
                             .mySlides.fade_img
                                 .numbertext 2 / 3
-                                img(src='/image/blog_slogan/your_voice.png' style='width:100%')
+                                img(src='/image/blog_slogan/respect.png' style='width:100%')
                             .mySlides.fade_img
                                 .numbertext 3 / 3
                                 img(src='/image/blog_slogan/your_voice.png' style='width:100%')
@@ -28,7 +28,7 @@ block content
                             br
                             br
                         h1 #{title}
-                        each article, i in articles.sort(function(a, b) {return b.support - a.support})
+                        each article, i in articles
                             article.blog_item
                                 .blog_item_img
                                     - var type = article.category
