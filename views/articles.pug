@@ -16,13 +16,13 @@ block content
                         .slideshow_image-container
                             .mySlides.fade_img
                                 .numbertext 1 / 3
-                                img(src='/image/blog_slogan/voice_matters.png' style='width:100%')
+                                img(src='/image/blog_slogan/your_voice3.png' style='width:100%')
                             .mySlides.fade_img
                                 .numbertext 2 / 3
                                 img(src='/image/blog_slogan/respect.png' style='width:100%')
                             .mySlides.fade_img
                                 .numbertext 3 / 3
-                                img(src='/image/blog_slogan/your_voice.png' style='width:100%')
+                                img(src='/image/blog_slogan/voice_matters2.png' style='width:100%')
                             a.prev(onclick='plusSlides(-1)') &#x276E;
                             a.next(onclick='plusSlides(1)') &#x276F;
                             br
@@ -63,25 +63,33 @@ block content
 
                 .col-lg-4
                     .blog_right_sidebar
-                        .post_category_widget(style='padding:50px;background-color:#b8c8ec;margin-top:20px;margin-left:50px;position:fixed')
+                        .post_category_widget(style='padding:50px;background-color:#b8c8ec;margin-left:50px;position:fixed')
                             h4.widget_title Category
                             ul.list.cat-list
                                 li
+                                    a.d-flex(href='/petition/articles/summary')
+                                        p1 All
+                                li
                                     a.d-flex(href='/petition/articles/category/' + 'Learning')
-                                        p Learning
+                                        p1 Learning
                                 li
                                     a.d-flex(href='/petition/articles/category/' + 'Facility')
-                                        p Facility
+                                        p1 Facility
                                 li
                                     a.d-flex(href='/petition/articles/category/' + 'Social')
-                                        p Social
+                                        p1 Social
                                 li
                                     a.d-flex(href='/petition/articles/category/' + 'Safety')
-                                        p Safety
+                                        p1 Safety
                                 li
                                     a.d-flex(href='/petition/articles/category/' + 'Other')
-                                        p Other
+                                        p1 Other
 
             p Copyright ©2020 All rights reserved | This template is made with by Colorlib
     script.
         showSlides(slideIndex);
+    style.
+        p1{
+            color: white;
+            font-size: 120%;
+        }
