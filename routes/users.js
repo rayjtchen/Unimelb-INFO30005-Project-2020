@@ -79,13 +79,11 @@ router.get('/dashboard', ensureAuthenticated, dashboard_controller.findUserArtic
 
 router.delete('/dashboard/:id', function(req, res){
   var query = {_id:req.params.id};
-  Article.remove(query, function(err){
-    if (err){
-      console.log(err);
-    }
-    res.send('Success');
-  });
+  Article.deleteOne(query)
+      .then(res.send('Success'))
+      .catch(err => console.log(err))
 });
+
 
 // Logout
 router.get('/logout', (req, res) => {
