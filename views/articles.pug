@@ -43,10 +43,13 @@ block content
                                             img.card-img.rounded-0(src='/image/article_type/social.jpg' alt='Social')
                                         default
                                             img.card-img.rounded-0(src='/image/article_type/other.jpg' alt='Other')
+                                            //onclick='myfunction()'
                                     a.blog_item_date(href='/users/support/' + article._id)
-                                        h3 #{article.support}
+                                        if support[i]
+                                            h3#supported Supported
+                                        else
+                                            h3#unsupported #{article.support}
                                         img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
-
                                 .blog_details
                                     a.d-inline-block(href="/petition/articles/" + article._id)
                                         h2 #{article.title}
@@ -88,6 +91,15 @@ block content
             p Copyright ©2020 All rights reserved | This template is made with by Colorlib
     script.
         showSlides(slideIndex);
+        function myfunction() {
+            if (document.getElementById("supported").textContent == "Supported") {
+                document.getElementById("supported").innerHTML = "Cancel";
+            } else {
+                document.getElementById("supported").innerHTML = "Supported";
+            }
+            //document.getElementById("supported").innerHTML = "Cancel";
+
+        }
     style.
         p1{
             color: white;

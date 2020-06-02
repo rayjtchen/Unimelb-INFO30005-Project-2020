@@ -6,10 +6,11 @@ var router = express.Router();
 let Article = require('../models/article');
 let Comment = require('../models/comment');
 var comment_controller = require('../controllers/comment_controller.js');
+var support_controller = require('../controllers/support_controller.js');
 
-var findAllArticles = function (req, res)
+var findAllArticles = async function (req, res)
 {
-    Article.find({}, function(err,articles)
+    Article.find({}, async function(err,articles)
     {
         if(err)
         {
@@ -17,37 +18,52 @@ var findAllArticles = function (req, res)
         }
         else
         {
-            res.render('articles',
-            {
-                title:'Articles - All',
-                articles:articles
-            });
-        }
-    });
-};
+            articles.sort(function(a, b) {return b.support - a.support});
 
-var findAllCategoty = function (req, res)
-{
-    Article.find({"category": req.params.category}, function(err,articles)
-    {
-        if(err)
-        {
-            console.log(err);
-        }
-        else
-        {
+            let support_list = [];
+            if(req.user)
+                support_list = await support_controller.check_supports(articles, req.user._id);
+            console.log(support_list);
             res.render('articles',
                 {
-                    title:'Articles - ' + req.params.category,
-                    articles:articles
+                    title:'Articles - All',
+                    articles:articles,
+                    user:req.user,
+                    support:support_list
                 });
         }
     });
 };
 
-var searchArticle = function (req, res)
+var findAllCategoty = async function (req, res)
 {
-    Article.find({"title": new RegExp(req.query.search, "i")}, function(err,articles)
+    Article.find({"category": req.params.category}, async function(err,articles)
+    {
+        if(err)
+        {
+            console.log(err);
+        }
+        else
+        {
+
+            let support_list = [];
+            if(req.user)
+                support_list = await support_controller.check_supports(articles, req.user._id);
+            console.log(support_list);
+            res.render('articles',
+                {
+                    title:'Articles - ' + req.params.category,
+                    articles:articles,
+                    user:req.user,
+                    support:support_list
+                });
+        }
+    });
+};
+
+var searchArticle = async function (req, res)
+{
+    Article.find({"title": new RegExp(req.query.search, "i")}, async function(err,articles)
     {
         if(err)
         {
@@ -65,10 +81,16 @@ var searchArticle = function (req, res)
             }
             else
             {
+                let support_list = [];
+                if(req.user)
+                    support_list = await support_controller.check_supports(articles, req.user._id);
+                console.log(support_list);
                 res.render('articles',
                     {
                         title:'We found ' + articles.length + ' article(s)',
-                        articles:articles
+                        articles:articles,
+                        user:req.user,
+                        support:support_list
                     });
             }
         }
@@ -93,17 +115,17 @@ var findOneArticle = function (req, res)
             comment_controller.findAllComment(article._id)
                 .then((comments)=>{
                     res.render('article_id',
-                    {
-                        article:article,
-                        comments:comments
-                    });
+                        {
+                            article:article,
+                            comments:comments
+                        });
                 })
                 .catch((message)=>{
                     res.render('article_id',
-                    {
-                        article:article,
-                        message:message
-                    });
+                        {
+                            article:article,
+                            message:message
+                        });
                 })
         }
     });
@@ -134,6 +156,22 @@ var addArticle = function(req,res)
         }
     });
 };
+
+
+var sortArticles = function (req, res)
+{
+    let articles = req.article;
+    if(req.body.sort == "name")
+    {
+        articles.sort(function(a, b) {return b.support - a.support});
+    }
+    res.render('articles',
+        {
+            title:'Articles - All',
+            articles:articles
+        });
+};
+
 
 
 
