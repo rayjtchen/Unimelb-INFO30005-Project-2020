@@ -13,6 +13,7 @@ var registerNewUser = function(req, res){
     if(!errors.isEmpty()){
         res.render('register', {
             title:'Register',
+            user:req.user,
             errors:errors
         });
     }else {

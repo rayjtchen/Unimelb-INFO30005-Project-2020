@@ -76,7 +76,8 @@ var searchArticle = async function (req, res)
                 res.render('articles',
                     {
                         title:'Article not found',
-                        articles:articles
+                        articles:articles,
+                        user:req.user
                     });
             }
             else
@@ -117,6 +118,7 @@ var findOneArticle = function (req, res)
                     res.render('article_id',
                         {
                             article:article,
+                            user:req.user,
                             comments:comments
                         });
                 })
@@ -124,6 +126,7 @@ var findOneArticle = function (req, res)
                     res.render('article_id',
                         {
                             article:article,
+                            user:req.user,
                             message:message
                         });
                 })
@@ -168,6 +171,7 @@ var sortArticles = function (req, res)
     res.render('articles',
         {
             title:'Articles - All',
+            user:req.user,
             articles:articles
         });
 };
