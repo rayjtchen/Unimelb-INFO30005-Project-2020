@@ -17,6 +17,7 @@ var findAllArticles = function (req, res)
         }
         else
         {
+            articles.sort(function(a, b) {return b.support - a.support});
             res.render('articles',
             {
                 title:'Articles - All',
@@ -134,6 +135,22 @@ var addArticle = function(req,res)
         }
     });
 };
+
+
+var sortArticles = function (req, res)
+{
+    let articles = req.article;
+    if(req.body.sort == "name")
+    {
+        articles.sort(function(a, b) {return b.support - a.support});
+    }
+    res.render('articles',
+        {
+            title:'Articles - All',
+            articles:articles
+        });
+};
+
 
 
 
