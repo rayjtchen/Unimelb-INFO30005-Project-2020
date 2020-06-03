@@ -19,7 +19,7 @@ var support = function(req,res)
 
 var check_support = async function(article_id,user_id)
 {
-    Support.findOne({ article_id: article_id, user_id: user_id }, function(err,support)
+    await Support.findOne({ article_id: article_id, user_id: user_id }, function(err,support)
         {
             if (!err) {
                 if(support) return true;

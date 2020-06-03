@@ -15,7 +15,10 @@ block content
                             ul.blog-info-link.mt-3.mb-4
                                 p.li(style = 'display:inline;') #{article.category} | &nbsp
                                     | #{article.support} supports &nbsp
-                                    a.btn.btn-primary(href = '#' style = 'color:white') support
+                                    if support
+                                        a.btn.btn-primary#supported(href = '/users/support/' + article._id style = 'color:white' onclick='support()') supported
+                                    else
+                                        a.btn.btn-danger#unsupported(href = '/users/support/' + article._id style = 'color:white;' onclick='support()') not support
                             p(style = 'color:black;')
                                 | #{article.body}
                     .blog-author
@@ -77,6 +80,40 @@ block content
                                         p1 Other
 
             p Copyright ©2020 All rights reserved | This template is made with  by Colorlib
+    script.
+        showSlides(slideIndex);
+        function support()
+        {
+            let target_s = "supported";
+            let target_us = "unsupported";
+
+            if (document.getElementById(target_s) == null)
+            {
+                if (document.getElementById(target_us).textContent == "supported") {
+                    document.getElementById(target_us).classList.remove('btn-primary');
+                    document.getElementById(target_us).classList.add('btn-danger');
+                    document.getElementById(target_us).innerHTML = "cancelled";
+                } else {
+                    document.getElementById(target_us).classList.remove('btn-danger');
+                    document.getElementById(target_us).classList.add('btn-primary');
+                    document.getElementById(target_us).innerHTML = "supported";
+                }
+            }
+            else
+            {
+                if (document.getElementById(target_s).textContent == "supported") {
+
+                    document.getElementById(target_s).classList.remove('btn-primary');
+                    document.getElementById(target_s).classList.add('btn-danger');
+
+                    document.getElementById(target_s).innerHTML = "cancelled";
+                } else {
+                    document.getElementById(target_s).classList.remove('btn-danger');
+                    document.getElementById(target_s).classList.add('btn-primary');
+                    document.getElementById(target_s).innerHTML = "supported";
+                }
+            }
+        }
     style.
         p1 {
             color: white;

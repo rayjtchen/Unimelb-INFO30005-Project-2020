@@ -8,6 +8,8 @@ let Comment = require('../models/comment');
 var comment_controller = require('../controllers/comment_controller.js');
 var support_controller = require('../controllers/support_controller.js');
 
+let Support = require('../models/support');
+
 var findAllArticles = async function (req, res)
 {
     Article.find({}, async function(err,articles)
@@ -85,7 +87,7 @@ var searchArticle = async function (req, res)
                 let support_list = [];
                 if(req.user)
                     support_list = await support_controller.check_supports(articles, req.user._id);
-                console.log(support_list);
+
                 res.render('articles',
                     {
                         title:'We found ' + articles.length + ' article(s)',
@@ -105,7 +107,7 @@ var searchArticle = async function (req, res)
 // Get Single Article
 var findOneArticle = function (req, res)
 {
-    Article.findById(req.params.id, function(err,article)
+    Article.findById(req.params.id,  function(err,article)
     {
         if(err)
         {
@@ -115,20 +117,69 @@ var findOneArticle = function (req, res)
         {
             comment_controller.findAllComment(article._id)
                 .then((comments)=>{
-                    res.render('article_id',
+                    if(req.user)
+                    {
+                        Support.findOne({ article_id: article._id, user_id: req.user._id }, function(err,support)
                         {
-                            article:article,
-                            user:req.user,
-                            comments:comments
+                            if (err)
+                            {
+                                console.log(err);
+                            }
+                            else
+                            {
+                                res.render('article_id',
+                                    {
+                                        article:article,
+                                        user:req.user,
+                                        comments:comments,
+                                        support:support
+                                    });
+                            }
                         });
+                    }
+                    else
+                    {
+                        res.render('article_id',
+                            {
+                                article:article,
+                                user:req.user,
+                                comments:comments,
+                                support:false
+                            });
+                    }
                 })
-                .catch((message)=>{
-                    res.render('article_id',
+                .catch((message)=>
+                {
+                    if(req.user)
+                    {
+                        Support.findOne({ article_id: article._id, user_id: req.user._id }, function(err,support)
                         {
-                            article:article,
-                            user:req.user,
-                            message:message
+                            if (err)
+                            {
+                                console.log(err);
+                            }
+                            else
+                            {
+                                res.render('article_id',
+                                    {
+                                        article:article,
+                                        user:req.user,
+                                        comments:message,
+                                        support:support
+                                    });
+                            }
                         });
+                    }
+                    else
+                    {
+                        res.render('article_id',
+                            {
+                                article:article,
+                                user:req.user,
+                                comments:message,
+                                support:false
+                            });
+                    }
                 })
         }
     });
