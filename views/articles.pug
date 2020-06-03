@@ -44,11 +44,13 @@ block content
                                         default
                                             img.card-img.rounded-0(src='/image/article_type/other.jpg' alt='Other')
                                             //onclick='myfunction()'
-                                    a.blog_item_date(href='/users/support/' + article._id)
+                                    a.blog_item_date(href='/users/support/' + article._id onclick='support('+ i +')')
                                         if support[i]
-                                            h3#supported Supported
+                                            h3(id = 'supported' + i) Supported
+                                            //h3#supported Supported
                                         else
-                                            h3#unsupported #{article.support}
+                                            h3(id = 'unsupported' + i) #{article.support}
+                                            //h3#unsupported #{article.support}
                                         img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
                                 .blog_details
                                     a.d-inline-block(href="/petition/articles/" + article._id)
@@ -91,13 +93,27 @@ block content
             p Copyright ©2020 All rights reserved | This template is made with by Colorlib
     script.
         showSlides(slideIndex);
-        function myfunction() {
-            if (document.getElementById("supported").textContent == "Supported") {
-                document.getElementById("supported").innerHTML = "Cancel";
-            } else {
-                document.getElementById("supported").innerHTML = "Supported";
+        function support(num)
+        {
+            let target_s = "supported" + num;
+            let target_us = "unsupported" + num;
+
+            if(document.getElementById(target_s) == null)
+            {
+                if (document.getElementById(target_us).textContent == "Supported") {
+                    document.getElementById(target_us).innerHTML = "Cancel";
+                } else {
+                    document.getElementById(target_us).innerHTML = "Supported";
+                }
             }
-            //document.getElementById("supported").innerHTML = "Cancel";
+            else
+            {
+                if (document.getElementById(target_s).textContent == "Supported") {
+                    document.getElementById(target_s).innerHTML = "Cancel";
+                } else {
+                    document.getElementById(target_s).innerHTML = "Supported";
+                }
+            }
 
         }
     style.

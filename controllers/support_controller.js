@@ -92,8 +92,8 @@ var addSupport = function(req,res)
             console.log(err);
             return;
         } else {
-            res.redirect('back');
-            //return res.send(204);
+            //res.redirect('back');
+            return res.send(204);
         }
     });
 };
@@ -115,8 +115,8 @@ var deleteSupport = function(req,res)
             console.log(err);
             return;
         } else {
-            res.redirect('back');
-            //return res.send(204);
+            //res.redirect('back');
+            return res.send(204);
         }
     });
 };
