@@ -48,6 +48,9 @@ block content
                                 li
                                     a(href="/petition/articles/" + article._id)
                                         u #{article.title}
+                                    .pull-right
+                                        img(src='/image/article_icon/support.png' style='width:20px;height:20px;' alt='Support')
+                                        i #{article.support}
                             if (supports.length == 0)
                                 li Looks like you have't support any petitions.
 
