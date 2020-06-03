@@ -11,10 +11,14 @@ block content
           br
           p2 Voice your opinion here bravely!
           br
-          a.nav-link(href='/users/login')
-            br
-            button.btn.btn-primary.btn-lg Get Start
-
+          if user
+            a.nav-link(href='/users/dashboard')
+              br
+              button.btn.btn-primary.btn-lg Welcome Back
+          else
+            a.nav-link(href='/users/login')
+              br
+              button.btn.btn-primary.btn-lg Get Start
           style.
             h1{
               font-size: 60px;
