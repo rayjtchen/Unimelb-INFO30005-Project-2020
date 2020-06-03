@@ -13,14 +13,9 @@ block content
                         .blog_details
                             h2 #{article.title}
                             ul.blog-info-link.mt-3.mb-4
-                                li
-                                    a(href='#')
-                                        i.fa.fa-user
-                                        |  #{article.category}
-                                li
-                                    a(href='#')
-                                        i.fa.fa-comments
-                                        |  #{article.support} Supports
+                                li(style = 'display:inline') #{article.category} | &nbsp
+                                    | #{article.support} supports &nbsp
+                                    a.btn.btn-primary(href = '#' style = 'color:white') support
                             p
                                 | #{article.body}
                     .blog-author
@@ -58,8 +53,8 @@ block content
 
                 //Category still work in progress!!!!
                 .col-lg-4
-                    .blog_right_sidebar
-                        .post_category_widget(style='padding:50px;background-color:#b8c8ec;margin-left:50px;position:fixed')
+                    .blog_right_sidebar(style = 'position:fixed')
+                        .post_category_widget(style='padding:50px;background-color:#b8c8ec;margin-left:50px;')
                             h4.widget_title Category
                             ul.list.cat-list
                                 li
