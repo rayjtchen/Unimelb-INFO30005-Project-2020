@@ -59,8 +59,7 @@ async function sendEmail(userEmail, userId) {
         from: 'umsv.team@gmail.com',
         to: userEmail,
         subject: 'UMSV - confirmation email',
-        text: `Thank you for register UMSV
-                Here is your conformation link: http://localhost:3000/users/confirmation/` + userId
+        text: "Thank you for register UMSV, Here is your conformation link:" + "Localhost: http://localhost:3000/users/confirmation/" + userId + " Heroku:  https://info30005-project-umsv.herokuapp.com/users/confirmation/" + userId
     };
 
     // send mail with defined transport object
