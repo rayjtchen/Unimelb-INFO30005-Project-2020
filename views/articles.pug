@@ -46,12 +46,15 @@ block content
                                             //onclick='myfunction()'
                                     a.blog_item_date(href='/users/support/' + article._id onclick='support('+ i +')')
                                         if support[i]
-                                            h3(id = 'supported' + i) Supported
+                                            h3(id = 'supported' + i) #{article.support}
+                                            img(src='/image/tick.png' style='width:25px;height:25px;' alt='Supported')
                                             //h3#supported Supported
                                         else
                                             h3(id = 'unsupported' + i) #{article.support}
+                                            img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
+
                                             //h3#unsupported #{article.support}
-                                        img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
+                                        //img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
                                 .blog_details
                                     a.d-inline-block(href="/petition/articles/" + article._id)
                                         h2 #{article.title}
