@@ -27,6 +27,8 @@ block content
                     .dashboard-text
                         h1(style='display:inline;')
                             p Welcome! #{user.username} &nbsp
+                                a.btn.btn-primary(href='/users/articles/add') Add Articles
+                                |&nbsp
                                 a.btn.btn-dark(href='/users/logout') Logout
                 .row
                     .events-features
@@ -41,7 +43,9 @@ block content
                                         i #{article.support} &nbsp
                                         a.btn.btn-danger.delete-article(href='#', data-id=article._id) Delete
                             if (articles.length==0)
-                                li Looks like you have't post your petitions. Let us hear your voice!
+                                li
+                                    a(href='/users/articles/add')
+                                        u Looks like you have't post your petitions. Let us hear your voice!
                         ul
                             li.highlighted View your supported petitions
                             each article, j in supports.reverse()
