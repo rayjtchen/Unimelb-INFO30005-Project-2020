@@ -43,15 +43,12 @@ block content
                                             img.card-img.rounded-0(src='/image/article_type/social.jpg' alt='Social')
                                         default
                                             img.card-img.rounded-0(src='/image/article_type/other.jpg' alt='Other')
-                                            //onclick='myfunction()'
                                     a.blog_item_date(href='/users/support/' + article._id onclick='support('+ i +')')
                                         if support[i]
                                             h3(id = 'supported' + i style = 'font-size:18px; margin:0px -18px -0px -18px') Supported
                                             h3(style='display:inline;')
                                                 h3(style = 'text-align:center; font-size :25px') #{article.support} &nbsp
                                                     img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
-                                            //img(src='/image/tick.png' style='width:25px;height:25px;' alt='Supported')
-                                            //h3#supported Supported
                                         else
                                             h3(id = 'unsupported' + i) #{article.support}
                                             img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')

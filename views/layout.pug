@@ -30,14 +30,13 @@ html
             a.nav-link(href='/') Home
               span.sr-only (current)
           li.nav-item
-            a.nav-link(href='/petition/articles/summary') Articles
-          li.nav-item
-            a.nav-link(href='/users/articles/add') Add Articles
-          li.nav-item
-            a.nav-link(href='/users/dashboard') Dashboard
-          li.nav-item
             a.nav-link(href='/aboutus') About Us
+          li.nav-item
+            a.nav-link(href='/petition/articles/summary') Articles
+        ul.navbar-nav.mr-2
           if user
+            li.nav-item.dropdown
+              a.nav-link(href='/users/dashboard') Dashboard
             li.nav-item
               a.nav-link(href='/users/logout') Logout
           else
@@ -46,8 +45,8 @@ html
             li.nav-item
               a.nav-link(href='/users/register') Register
         form.form-inline.my-2.my-lg-0(method = 'GET', action = '/petition/articles/search/')
-            input.form-control.mr-sm-2(type='text' name='search' placeholder='Search Article')
-            button.btn.btn-dark.my-2.my-sm-0(type='submit', value = 'Submit') Search
+          input.form-control.mr-sm-2(type='text' name='search' placeholder='Search Article' style = 'width:auto')
+          button.btn.btn-dark.my-2.my-sm-0(type='submit', value = 'Submit') Search
 
     .my_container(style='z-index:99')
       block content
