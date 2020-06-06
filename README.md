@@ -26,14 +26,25 @@ Comment will be post to : https://info30005-project-umsv.herokuapp.com/users/com
 
 (Here id == id of the article)
 
+**4.  support:**
+
+Suppots will  be add to: https://info30005-project-umsv.herokuapp.com/users/support/:id
+
+(Here id == id of the article)
+
 #### Test account for authentication(login):
         
-    email: test@student.unimelb.edu.au
-    password: test
+    email: yssheng@student.unimelb.edu.au
+    password: 1111
         
 #### ID of test article: 
     id : 5eac1bc719736912c5e1d80b
     
+### Mocha test
+
+After installing mocha using code: npm install -g mocha
+
+Run the code 'mocha test/**/    *.js --exit' to start the test.    
     
 ### Reference:
 
