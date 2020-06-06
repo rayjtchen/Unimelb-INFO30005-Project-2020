@@ -3,7 +3,6 @@ const supertest = require('supertest');
 const app = require('../../app');
 const user = require('../../models/user');
 
-// This section of simulate a test when your application IS RUNNING, we are testing by DECLARING ROUTES, and see if it returns the correct data
 describe('integration test', function() {
     describe('get login in form', function(){
         context('check request login form', function(){

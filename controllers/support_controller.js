@@ -27,47 +27,26 @@ var check_support = async function(article_id,user_id)
             }
         }
     )};
-/*
-var check_supports = async function(articles,user_id)
-{
-    //if(!user._id) return null;
-    //if(articles = []) return null;
-    let result = [];
-    let a;
-    for(a of articles)
-    {
-        let r = await check_support(a._id, user_id)
-        console.log(r);
-        result.push(r);
-    }
-    console.log(result);
-    return result;
-};*/
-
 
 var check_supports = async function(articles,user_id)
 {
-    //if(!user._id) return null;
-    //if(articles = []) return null;
+
     let result = [];
     let a;
     for(a of articles)
     {
         await Support.findOne({ article_id: a._id, user_id: user_id }, function(err,support)
         {
-            //console.log(support);
+
             if (!err) {
                 if(support) result.push(true);
                 else result.push(false);
             }
         });
     }
-    //console.log(result);
+
     return result;
 };
-
-
-
 
 
 var addSupport = function(req,res)
@@ -92,7 +71,6 @@ var addSupport = function(req,res)
             console.log(err);
             return;
         } else {
-            //res.redirect('back');
             return res.send(204);
         }
     });
@@ -115,7 +93,6 @@ var deleteSupport = function(req,res)
             console.log(err);
             return;
         } else {
-            //res.redirect('back');
             return res.send(204);
         }
     });
@@ -127,8 +104,3 @@ module.exports.deleteSupport = deleteSupport;
 module.exports.support = support;
 module.exports.check_support = check_support;
 module.exports.check_supports = check_supports;
-
-
-
-//module.exports.addComment = addComment;
-//module.exports.findAllComment = findAllComment;

@@ -4,7 +4,7 @@ block content
     //from colorlib.com https://colorlib.com/wp/templates/
     link(rel='stylesheet' href='/stylesheets/timezone_css/style.css')
 
-    //image_slider still work in progress!!!!
+    //image_slider
     script(src='/stylesheets/image_slider/js/index.js')
     link(rel='stylesheet' href='/stylesheets/image_slider/css/style.css')
 
@@ -53,7 +53,6 @@ block content
                                             h3(id = 'unsupported' + i) #{article.support}
                                             img(src='/image/article_icon/support.png' style='width:25px;height:25px;' alt='Support')
 
-                                            //h3#unsupported #{article.support}
                                 .blog_details
                                     a.d-inline-block(href="/petition/articles/" + article._id)
                                         h2 #{article.title}
