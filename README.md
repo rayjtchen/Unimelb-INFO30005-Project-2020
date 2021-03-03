@@ -34,8 +34,8 @@ Suppots will  be add to: https://info30005-project-umsv.herokuapp.com/users/supp
 
 #### Test account for authentication(login):
         
-    email: yssheng@student.unimelb.edu.au
-    password: 1111
+    email: ******@student.unimelb.edu.au
+    password: ******
         
 #### ID of test article: 
     id : 5eac1bc719736912c5e1d80b
